@@ -1,0 +1,126 @@
+.main{
+  margin-top: 60px;
+}
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+
+@media (max-width: 2000px) {
+  .item-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+/* This @media means when the screen width is 1600px or
+  less, we will divide the grid into 6 columns. */
+@media (max-width: 1600px) {
+  .item-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1300px) {
+  .item-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .item-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .item-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .item-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .item-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-right: 1px solid rgb(231, 231, 231);
+  border-bottom: 1px solid rgb(231, 231, 231);
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.item-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.item-name{
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.item-rating-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-rating-image{
+  width: 100px;
+  margin-right: 6px;
+}
+
+.item-ratin-no{
+  color: rgb(1, 124, 182);
+  cursor: pointer;
+  margin-top: 3px;
+}
+.item-price{
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.item-amount{
+  margin-bottom: 17px;
+}
+.item-spacer{
+  flex:1;
+}
+.added-to-cart{
+  color: rgb(6, 125, 98);
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  opacity: 0;
+}
+.Add-to-cart-image{
+  height: 20px;
+  margin-right: 5px;
+}
+.add-to-cart-button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 50px;
+}
