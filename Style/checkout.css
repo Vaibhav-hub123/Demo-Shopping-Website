@@ -15,12 +15,13 @@
 .order-list-grid{
     display: flex;
     flex-direction: row;
+    
 }
 .product-order-info{
     flex: 2;
     display: grid;
     margin-right: 10px;
-    grid-template-rows: 1fr 4fr;
+    
 }
 .product-order-info-container{
     padding: 18px;
