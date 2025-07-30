@@ -1,4 +1,4 @@
-import {cart,addToCart,UpdateCartQuantity} from '../data/cart.js';
+import {cart,addToCart,UpdateCartQuantity , saveToStorage} from '../data/cart.js';
 import { products } from '../data/product.js';
 
 let productsHTML="";
@@ -70,7 +70,6 @@ document.querySelectorAll(`.js-add-to-cart`).forEach((button)=>{
         setTimeout(() => {
         addedToCartDocument.remove('active-added-to-cart');
         }, 2000);
-        
         
     })
 });
