@@ -46,21 +46,21 @@ cart.forEach((cartItem)=>{
             <div class="shipping-info">
                 <div class="delivery-options">Choose a delivery option:</div>
                 <div class="shipping-options">
-                    <input type="radio" name="checkout-checkbox" class="shipping-checkbox-checkout">
+                    <input type="radio" name="checkout-checkbox-${cartItem.productId}" class="shipping-checkbox-checkout">
                     <div class="shipping-details">
                         <div class="shipping-details-time">Tuesday, June 21</div>
                         <div class="shipping-detail-cost">FREE Shipping</div>
                     </div>
                 </div>
                 <div class="shipping-options">
-                    <input type="radio" name="checkout-checkbox" class="shipping-checkbox-checkout">
+                    <input type="radio" name="checkout-checkbox-${cartItem.productId}" class="shipping-checkbox-checkout">
                     <div class="shipping-details">
                         <div class="shipping-details-time">Wednesday, June 15</div>
                         <div class="shipping-detail-cost">$4.99-Shipping</div>
                     </div>
                 </div>
                 <div class="shipping-options">
-                    <input type="radio" name="checkout-checkbox" class="shipping-checkbox-checkout">
+                    <input type="radio" name="checkout-checkbox-${cartItem.productId}" class="shipping-checkbox-checkout">
                     <div class="shipping-details">
                         <div class="shipping-details-time">Monday, June 13</div>
                         <div class="shipping-detail-cost">$9.99-Shipping</div>
