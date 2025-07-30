@@ -1,4 +1,9 @@
+import {cart,addToCart,UpdateCartQuantity} from '../data/cart.js';
+import { products } from '../data/product.js';
+
 let productsHTML="";
+
+
 products.forEach((product) => {
     productsHTML+= `
     <div class="item-info">
@@ -21,7 +26,7 @@ products.forEach((product) => {
         <div class="item-price">$${(product.priceCents/100).toFixed(2)}</div>
 
         <div class="item-amount">
-            <select>
+            <select class="js-quantity-select-${product.id}">
                 <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -36,7 +41,7 @@ products.forEach((product) => {
         </div>
 
         <div class="item-spacer"></div>
-        <div class="added-to-cart">
+        <div class="added-to-cart js-added-to-cart-${product.id}">
             <img src="images/checkmark.png" class="Add-to-cart-image">added
         </div>
 
@@ -52,37 +57,25 @@ products.forEach((product) => {
 document.querySelector(`.js-products-grid`).innerHTML=productsHTML;
 
 
+
 document.querySelectorAll(`.js-add-to-cart`).forEach((button)=>{
     button.addEventListener('click',()=>{
-        const product_id =button.dataset.productId;
-        
-        let matchingItem;
+        const product_id =button.dataset.productId;  
+        addToCart(product_id);
+        UpdateCartQuantity();
 
-        cart.forEach((item)=>{
-            if(product_id === item.productId){
-                matchingItem=item;        
-            }
-        })
-
-        if(matchingItem){
-            matchingItem.quantity+=1;
-        }else{
-            cart.push({
-                productId:product_id,
-                quantity: 1
-            })
-        }
+        const addedToCartDocument=document.querySelector(`.js-added-to-cart-${product_id}`).classList;
+        addedToCartDocument.add('active-added-to-cart');
         
-        console.log(cart);
-        calculateTotalAndPrint();
+        setTimeout(() => {
+        addedToCartDocument.remove('active-added-to-cart');
+        }, 2000);
+        
+        
     })
 });
 
 
-function calculateTotalAndPrint(){
-    let tq=0;
-    cart.forEach((item) => {
-        tq+=item.quantity;
-    });
-    document.querySelector(`.cart-quantity`).innerHTML=tq;
-}
+
+
+

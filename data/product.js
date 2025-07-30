@@ -1,6 +1,6 @@
-const products = [
+export const products = [
   {
-    id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+    id: "id-1",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
     rating: {
@@ -15,7 +15,7 @@ const products = [
     ]
   },
   {
-    id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+    id: "id-2",
     image: "images/products/intermediate-composite-basketball.jpg",
     name: "Intermediate Size Basketball",
     rating: {
@@ -29,7 +29,7 @@ const products = [
     ]
   },
   {
-    id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+    id: "id-3",
     image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
     name: "Adults Plain Cotton T-Shirt - 2 Pack",
     rating: {
@@ -46,7 +46,7 @@ const products = [
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
-    id: "54e0eccd-8f36-462b-b68a-8182611d9add",
+    id: "id-4",
     image: "images/products/black-2-slot-toaster.jpg",
     name: "2 Slot Toaster - Black",
     rating: {
@@ -61,7 +61,7 @@ const products = [
     ]
   },
   {
-    id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
+    id: "id-5",
     image: "images/products/6-piece-white-dinner-plate-set.jpg",
     name: "6 Piece White Dinner Plate Set",
     rating: {
@@ -76,7 +76,7 @@ const products = [
     ]
   },
   {
-    id: "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
+    id: "id-6",
     image: "images/products/6-piece-non-stick-baking-set.webp",
     name: "6-Piece Nonstick, Carbon Steel Oven Bakeware Baking Set",
     rating: {
@@ -90,7 +90,7 @@ const products = [
     ]
   },
   {
-    id: "dd82ca78-a18b-4e2a-9250-31e67412f98d",
+    id: "id-7",
     image: "images/products/plain-hooded-fleece-sweatshirt-yellow.jpg",
     name: "Plain Hooded Fleece Sweatshirt",
     rating: {
@@ -105,7 +105,7 @@ const products = [
     ]
   },
   {
-    id: "77919bbe-0e56-475b-adde-4f24dfed3a04",
+    id: "id-8",
     image: "images/products/luxury-tower-set-6-piece.jpg",
     name: "Luxury Towel Set - Graphite Gray",
     rating: {
@@ -122,7 +122,7 @@ const products = [
     ]
   },
   {
-    id: "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
+    id: "id-9",
     image: "images/products/liquid-laundry-detergent-plain.jpg",
     name: "Liquid Laundry Detergent, 110 Loads, 82.5 Fl Oz",
     rating: {
@@ -136,7 +136,7 @@ const products = [
     ]
   },
   {
-    id: "58b4fc92-e98c-42aa-8c55-b6b79996769a",
+    id: "id-10",
     image: "images/products/knit-athletic-sneakers-gray.jpg",
     name: "Waterproof Knit Athletic Sneakers - Gray",
     rating: {
@@ -151,7 +151,7 @@ const products = [
     ]
   },
   {
-    id: "5968897c-4d27-4872-89f6-5bcb052746d7",
+    id: "id-11",
     image: "images/products/women-chiffon-beachwear-coverup-black.jpg",
     name: "Women's Chiffon Beachwear Cover Up - Black",
     rating: {
@@ -170,7 +170,7 @@ const products = [
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
-    id: "aad29d11-ea98-41ee-9285-b916638cac4a",
+    id: "id-12",
     image: "images/products/round-sunglasses-black.jpg",
     name: "Round Sunglasses",
     rating: {
@@ -184,7 +184,7 @@ const products = [
     ]
   },
   {
-    id: "04701903-bc79-49c6-bc11-1af7e3651358",
+    id: "id-13",
     image: "images/products/women-beach-sandals.jpg",
     name: "Women's Two Strap Buckle Sandals - Tan",
     rating: {
@@ -201,7 +201,7 @@ const products = [
     ]
   },
   {
-    id: "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
+    id: "id-14",
     image: "images/products/blackout-curtain-set-beige.webp",
     name: "Blackout Curtains Set 4-Pack - Beige",
     rating: {
@@ -216,7 +216,7 @@ const products = [
     ]
   },
   {
-    id: "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
+    id: "id-15",
     image: "images/products/men-slim-fit-summer-shorts-gray.jpg",
     name: "Men's Slim-Fit Summer Shorts",
     rating: {
@@ -231,7 +231,7 @@ const products = [
     ]
   },
   {
-    id: "c2a82c5e-aff4-435f-9975-517cfaba2ece",
+    id: "id-16",
     image: "images/products/electric-glass-and-steel-hot-water-kettle.webp",
     name: "Electric Glass and Steel Hot Tea Water Kettle - 1.7-Liter",
     rating: {
@@ -246,7 +246,7 @@ const products = [
     ]
   },
   {
-    id: "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
+    id: "id-17",
     image: "images/products/facial-tissue-2-ply-18-boxes.jpg",
     name: "Ultra Soft Tissue 2-Ply - 18 Box",
     rating: {
@@ -263,7 +263,7 @@ const products = [
     ]
   },
   {
-    id: "a82c6bac-3067-4e68-a5ba-d827ac0be010",
+    id: "id-18",
     image: "images/products/straw-sunhat.webp",
     name: "Straw Lifeguard Sun Hat",
     rating: {
@@ -279,7 +279,7 @@ const products = [
     ]
   },
   {
-    id: "e4f64a65-1377-42bc-89a5-e572d19252e2",
+    id: "id-19",
     image: "images/products/sky-flower-stud-earrings.webp",
     name: "Sterling Silver Sky Flower Stud Earrings",
     rating: {
@@ -294,7 +294,7 @@ const products = [
     ]
   },
   {
-    id: "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
+    id: "id-20",
     image: "images/products/women-stretch-popover-hoodie-black.jpg",
     name: "Women's Stretch Popover Hoodie",
     rating: {
@@ -313,7 +313,7 @@ const products = [
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
-    id: "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
+    id: "id-21",
     image: "images/products/bathroom-rug.jpg",
     name: "Bathroom Bath Rug Mat 20 x 31 Inch - Grey",
     rating: {
@@ -328,7 +328,7 @@ const products = [
     ]
   },
   {
-    id: "4f4fbcc2-4e72-45cc-935c-9e13d79cc57f",
+    id: "id-22",
     image: "images/products/women-knit-ballet-flat-black.jpg",
     name: "Women's Knit Ballet Flat",
     rating: {
@@ -344,7 +344,7 @@ const products = [
     ]
   },
   {
-    id: "8b5a2ee1-6055-422a-a666-b34ba28b76d4",
+    id: "id-23",
     image: "images/products/men-golf-polo-t-shirt-blue.jpg",
     name: "Men's Regular-Fit Quick-Dry Golf Polo Shirt",
     rating: {
@@ -362,7 +362,7 @@ const products = [
     sizeChartLink: "images/clothing-size-chart.png"
   },
   {
-    id: "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
+    id: "id-24",
     image: "images/products/trash-can-with-foot-pedal-50-liter.jpg",
     name: "Trash Can with Foot Pedal - Brushed Stainless Steel",
     rating: {
@@ -378,7 +378,7 @@ const products = [
     ]
   },
   {
-    id: "19c6a64a-5463-4d45-9af8-e41140a4100c",
+    id: "id-25",
     image: "images/products/duvet-cover-set-blue-twin.jpg",
     name: "Duvet Cover Set with Zipper Closure",
     rating: {
@@ -395,7 +395,7 @@ const products = [
     ]
   },
   {
-    id: "d2785924-743d-49b3-8f03-ec258e640503",
+    id: "id-26",
     image: "images/products/women-chunky-beanie-gray.webp",
     name: "Women's Chunky Cable Beanie - Gray",
     rating: {
@@ -413,7 +413,7 @@ const products = [
     ]
   },
   {
-    id: "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
+    id: "id-27",
     image: "images/products/men-chino-pants-beige.jpg",
     name: "Men's Classic-fit Pleated Chino Pants",
     rating: {
@@ -428,7 +428,7 @@ const products = [
     ]
   },
   {
-    id: "1c079479-8586-494f-ab53-219325432536",
+    id: "id-28",
     image: "images/products/men-athletic-shoes-green.jpg",
     name: "Men's Athletic Sneaker",
     rating: {
@@ -444,7 +444,7 @@ const products = [
     ]
   },
   {
-    id: "4df68c27-fd59-4a6a-bbd1-e754ddb6d53c",
+    id: "id-29",
     image: "images/products/men-navigator-sunglasses-brown.jpg",
     name: "Men's Navigator Sunglasses Pilot",
     rating: {
@@ -460,7 +460,7 @@ const products = [
     ]
   },
   {
-    id: "4e37dd03-3b23-4bc6-9ff8-44e112a92c64",
+    id: "id-30",
     image: "images/products/non-stick-cooking-set-15-pieces.webp",
     name: "Non-Stick Cookware Set, Pots, Pans and Utensils - 15 Pieces",
     rating: {
@@ -474,7 +474,7 @@ const products = [
     ]
   },
   {
-    id: "a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d",
+    id: "id-31",
     image: "images/products/vanity-mirror-silver.jpg",
     name: "Vanity Mirror with Heavy Base - Chrome",
     rating: {
@@ -490,7 +490,7 @@ const products = [
     ]
   },
   {
-    id: "a45cfa0a-66d6-4dc7-9475-e2b01595f7d7",
+    id: "id-32",
     image: "images/products/women-french-terry-fleece-jogger-camo.jpg",
     name: "Women's Fleece Jogger Sweatpant",
     rating: {

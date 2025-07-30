@@ -106,6 +106,8 @@
 .item-spacer{
   flex:1;
 }
+
+
 .added-to-cart{
   color: rgb(6, 125, 98);
   font-size: 16px;
@@ -114,11 +116,20 @@
   align-items: center;
   margin-bottom: 8px;
   opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
 }
+.active-added-to-cart{
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .Add-to-cart-image{
   height: 20px;
   margin-right: 5px;
 }
+
+
 .add-to-cart-button {
   width: 100%;
   padding: 8px;
