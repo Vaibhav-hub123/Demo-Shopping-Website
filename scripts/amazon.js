@@ -1,5 +1,6 @@
-import {cart,addToCart,UpdateCartQuantity , saveToStorage} from '../data/cart.js';
+import {cart,addToCart,UpdateCartQuantity , saveToStorage,totalQuantity} from '../data/cart.js';
 import { products } from '../data/product.js';
+import { calculateTotal } from './reciept.js';
 
 let productsHTML="";
 
@@ -46,9 +47,7 @@ products.forEach((product) => {
         </div>
 
 
-        <button class="add-to-cart-button 
-        button-primary js-add-to-cart" 
-        data-product-id="${product.id}">
+        <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id="${product.id}">
             Add to Cart
         </button>
     </div>
@@ -56,7 +55,7 @@ products.forEach((product) => {
 });
 document.querySelector(`.js-products-grid`).innerHTML=productsHTML;
 
-
+UpdateCartQuantity();
 
 document.querySelectorAll(`.js-add-to-cart`).forEach((button)=>{
     button.addEventListener('click',()=>{
@@ -70,7 +69,7 @@ document.querySelectorAll(`.js-add-to-cart`).forEach((button)=>{
         setTimeout(() => {
         addedToCartDocument.remove('active-added-to-cart');
         }, 2000);
-        
+        calculateTotal();
     })
 });
 

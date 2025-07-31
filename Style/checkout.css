@@ -63,14 +63,44 @@
     margin-top: 10px;
     margin-bottom:10px;
 }
+
+
+
 .Update-checkout ,.Delete-checkout{
-    color: rgb(0, 115, 255);
-    cursor: pointer;
-    margin-left: 4px;
+    display: initial;
 }
-.Update-checkout:hover ,.Delete-checkout:hover{
-    color: red;
+.quantity-input {
+  width: 30px;
+  display: none;
 }
+
+.save-quantity-link {
+  display: none;
+}
+
+.is-editing-quantity .quantity-input {
+  display: initial;
+}
+
+.is-editing-quantity .save-quantity-link {
+    display: initial;
+}
+.is-editing-quantity .save-quantity-link {
+    display: initial;
+}
+.is-editing-quantity .quantity-label {
+  display: none;
+}
+.is-editing-quantity .Update-checkout {
+  display: none;
+}
+
+
+
+
+
+
+
 
 .shipping-info{
     margin-left: 30px;
