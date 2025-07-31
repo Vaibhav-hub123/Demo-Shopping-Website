@@ -1,4 +1,4 @@
-import { cart ,removeProduct, saveToStorage, totalQuantity,updateQuantityInCheckOut} from "../data/cart.js";
+import { cart ,removeProduct, saveToStorage, totalQuantity,updateQuantity,UpdateCartQuantity} from "../data/cart.js";
 import { products } from "../data/product.js";
 import { calculateTotal ,displayCost } from "./reciept.js";
 
@@ -109,7 +109,28 @@ document.querySelectorAll(`.js-update-checkout`).forEach((link)=>{
 document.querySelectorAll(`.save-quantity-link`).forEach((link)=>{
     link.addEventListener('click',()=>{
         const prod_id=link.dataset.productId;
+        
+        
+        
+        
+        const newQuantity=Number(document.querySelector(`.js-quantity-input-${prod_id}`).value);
+        
+        
+        if (newQuantity < 0 || newQuantity >= 1000) {
+            alert('Quantity must be at least 0 and less than 1000');
+            return;
+        }
+        updateQuantity(prod_id,newQuantity);
+    
         const container = document.querySelector(`.js-cart-product-container-${prod_id}`);
-            container.classList.remove('is-editing-quantity');
+        container.classList.remove('is-editing-quantity');
+        
+        console.log(newQuantity);
+
+        const quantityLabel = document.querySelector(`.js-item-quantity-${prod_id}`);
+        quantityLabel.innerHTML = newQuantity;
+
+        displayTotal();
+        
     });
 });
