@@ -1,10 +1,15 @@
 import { cart ,removeProduct, saveToStorage, totalQuantity,updateQuantity,UpdateCartQuantity} from "../data/cart.js";
 import { products } from "../data/product.js";
 import { calculateTotal ,displayCost } from "./reciept.js";
+import {deliveryOptions} from "../data/deliveryOptions.js";
+
 
 
 let itemList="";
-
+const today=dayjs();
+const sevenDays=today.add(7,'days');
+const threeDays=today.add(3,'days');
+const oneDay=today.add(1,'days');
 
 cart.forEach((cartItem)=>{
     const productId=cartItem.productId;
@@ -16,9 +21,20 @@ cart.forEach((cartItem)=>{
         }
     });
 
+
+    const deliveryOptionId=cartItem.DeliveryOptionID;
+    let deliveryoption;
+    deliveryOptions.forEach((option)=>{
+        if(option.id===deliveryOptionId){
+            deliveryoption=option;
+        }
+    });
+    const today=dayjs();
+    const nextDay=(today.add(deliveryoption.deliveryDays,'days')).format('dddd, MMMM D');
+
     itemList+=`<div class="product-order-info-container js-cart-product-container-${cartItem.productId}">
         <div class="delivery--day-date">
-            Delivery date: Tuesday,June 21
+            Delivery date: ${nextDay}
         </div>
         <div class="product-image-quantity-price-info">
             <div class="checkout-image-container">
@@ -49,31 +65,48 @@ cart.forEach((cartItem)=>{
 
             <div class="shipping-info">
                 <div class="delivery-options">Choose a delivery option:</div>
-                <div class="shipping-options">
-                    <input type="radio" name="checkout-checkbox-${cartItem.productId}" class="shipping-checkbox-checkout">
-                    <div class="shipping-details">
-                        <div class="shipping-details-time">Tuesday, June 21</div>
-                        <div class="shipping-detail-cost">FREE Shipping</div>
-                    </div>
-                </div>
-                <div class="shipping-options">
-                    <input type="radio" name="checkout-checkbox-${cartItem.productId}" class="shipping-checkbox-checkout">
-                    <div class="shipping-details">
-                        <div class="shipping-details-time">Wednesday, June 15</div>
-                        <div class="shipping-detail-cost">$4.99-Shipping</div>
-                    </div>
-                </div>
-                <div class="shipping-options">
-                    <input type="radio" name="checkout-checkbox-${cartItem.productId}" class="shipping-checkbox-checkout">
-                    <div class="shipping-details">
-                        <div class="shipping-details-time">Monday, June 13</div>
-                        <div class="shipping-detail-cost">$9.99-Shipping</div>
-                    </div>
-                </div>
+                ${generateDeliveryOptions(matchingItem,cartItem)}
             </div>
         </div>
     </div>`;
 });
+
+
+
+
+function generateDeliveryOptions(matchingItem,cartItem){
+    let deliveryDatesHTML='';
+    deliveryOptions.forEach((deliveryOption)=>{ 
+
+
+        const today=dayjs();
+        const nextDay=(today.add(deliveryOption.deliveryDays,'days')).format('dddd, MMMM D');
+        const price=((deliveryOption.priceCents)/100).toFixed(2);
+        const priceString=price == 0 ? 'FREE' : `$${price}`;
+
+
+        const isChecked= deliveryOption.id === cartItem.DeliveryOptionID;
+
+
+        deliveryDatesHTML+=`
+        <div class="shipping-options">
+            <input type="radio" ${ isChecked ? 'checked' : ''} name="checkout-checkbox-${matchingItem.id}" class="shipping-checkbox-checkout">
+            <div class="shipping-details">
+                <div class="shipping-details-time">
+                    ${nextDay}
+                </div>
+                <div class="shipping-detail-cost">
+                    ${priceString}-Shipping
+                </div>
+            </div>
+        </div>
+        `
+    });
+    return deliveryDatesHTML;
+}
+
+
+
 
 displayCost(calculateTotal());
 displayTotal();
@@ -82,8 +115,14 @@ document.querySelector(`.product-order-info`).innerHTML=itemList;
 document.querySelectorAll(`.js-delete-checkout`).forEach((link)=>{
             link.addEventListener('click',()=>{
                 const prod_id=link.dataset.productId;
+
+
                 removeProduct(prod_id);
+
+
                 document.querySelector(`.js-cart-product-container-${prod_id}`).remove();
+
+
                 displayTotal();   
                 displayCost(calculateTotal());
             }
@@ -108,9 +147,7 @@ document.querySelectorAll(`.js-update-checkout`).forEach((link)=>{
 
 document.querySelectorAll(`.save-quantity-link`).forEach((link)=>{
     link.addEventListener('click',()=>{
-        const prod_id=link.dataset.productId;
-        
-        
+        const prod_id=link.dataset.productId;  
         
         
         const newQuantity=Number(document.querySelector(`.js-quantity-input-${prod_id}`).value);
@@ -120,17 +157,21 @@ document.querySelectorAll(`.save-quantity-link`).forEach((link)=>{
             alert('Quantity must be at least 0 and less than 1000');
             return;
         }
+
+
         updateQuantity(prod_id,newQuantity);
     
+
         const container = document.querySelector(`.js-cart-product-container-${prod_id}`);
         container.classList.remove('is-editing-quantity');
         
-        console.log(newQuantity);
 
         const quantityLabel = document.querySelector(`.js-item-quantity-${prod_id}`);
         quantityLabel.innerHTML = newQuantity;
 
+
         displayTotal();
+        displayCost(calculateTotal());
         
     });
 });
