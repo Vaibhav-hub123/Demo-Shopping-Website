@@ -1,4 +1,4 @@
-import { cart ,removeProduct, saveToStorage, totalQuantity,updateQuantity,UpdateCartQuantity} from "../data/cart.js";
+import { cart ,removeProduct, saveToStorage, totalQuantity,updateQuantity,UpdateCartQuantity,updateDeliveryOptions} from "../data/cart.js";
 import { products } from "../data/product.js";
 import { calculateTotal ,displayCost } from "./reciept.js";
 import {deliveryOptions} from "../data/deliveryOptions.js";
@@ -23,17 +23,20 @@ cart.forEach((cartItem)=>{
 
 
     const deliveryOptionId=cartItem.DeliveryOptionID;
-    let deliveryoption;
+
+    let deliveryOption;
+
     deliveryOptions.forEach((option)=>{
         if(option.id===deliveryOptionId){
-            deliveryoption=option;
+            deliveryOption=option;
         }
     });
+
     const today=dayjs();
-    const nextDay=(today.add(deliveryoption.deliveryDays,'days')).format('dddd, MMMM D');
+    const nextDay=(today.add(deliveryOption.deliveryDays,'days')).format('dddd, MMMM D');
 
     itemList+=`<div class="product-order-info-container js-cart-product-container-${cartItem.productId}">
-        <div class="delivery--day-date">
+        <div class="delivery-day-date">
             Delivery date: ${nextDay}
         </div>
         <div class="product-image-quantity-price-info">
@@ -74,6 +77,8 @@ cart.forEach((cartItem)=>{
 
 
 
+
+
 function generateDeliveryOptions(matchingItem,cartItem){
     let deliveryDatesHTML='';
     deliveryOptions.forEach((deliveryOption)=>{ 
@@ -82,21 +87,27 @@ function generateDeliveryOptions(matchingItem,cartItem){
         const today=dayjs();
         const nextDay=(today.add(deliveryOption.deliveryDays,'days')).format('dddd, MMMM D');
         const price=((deliveryOption.priceCents)/100).toFixed(2);
-        const priceString=price == 0 ? 'FREE' : `$${price}`;
+        const priceString=price == 0 ? 'FREE' : `$${price} - `;
 
 
         const isChecked= deliveryOption.id === cartItem.DeliveryOptionID;
 
 
         deliveryDatesHTML+=`
-        <div class="shipping-options">
-            <input type="radio" ${ isChecked ? 'checked' : ''} name="checkout-checkbox-${matchingItem.id}" class="shipping-checkbox-checkout">
+        <div class="shipping-options js-delivery-option" 
+        data-product-id="${matchingItem.id}" 
+        data-delivery-option-id="${deliveryOption.id}">
+
+            <input type="radio" ${ isChecked ? 'checked' : ''} 
+            name="checkout-checkbox-${matchingItem.id}" 
+            class="shipping-checkbox-checkout">
+
             <div class="shipping-details">
                 <div class="shipping-details-time">
                     ${nextDay}
                 </div>
                 <div class="shipping-detail-cost">
-                    ${priceString}-Shipping
+                    ${priceString} Shipping
                 </div>
             </div>
         </div>
@@ -106,7 +117,15 @@ function generateDeliveryOptions(matchingItem,cartItem){
 }
 
 
+document.querySelectorAll(`.js-delivery-option`).forEach((element)=>{
+    console.log(element);
+    element.addEventListener('click',()=>
+    {
+        const {productId,deliveryOptionId}=element.dataset; 
+        updateDeliveryOptions(productId,deliveryOptionId);
 
+    });
+});
 
 displayCost(calculateTotal());
 displayTotal();
