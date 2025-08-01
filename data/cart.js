@@ -13,7 +13,7 @@ if(!cart){
     }
 ];
 }
-console.log(cart);
+
 
 
 
